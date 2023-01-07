@@ -16,7 +16,7 @@ pipeline {
         stage ('kubectl apply') {
             steps {
                 sh '''
-                kubectl apply -f spring.yml
+                kubectl apply -f saleor.yml
                 kubectl get all
                 '''
             }
