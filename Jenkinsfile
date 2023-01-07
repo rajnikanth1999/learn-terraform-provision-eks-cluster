@@ -16,6 +16,7 @@ pipeline {
         stage ('kubectl apply') {
             steps {
                 sh '''
+                kubectl create secret docker-registry regcred --docker-username=praveenrajnikanth --docker-password=N@ni@!999 --docker-email=praveendba31@gmail.com
                 kubectl apply -f saleor.yml
                 kubectl get all
                 '''
