@@ -10,14 +10,7 @@ pipeline {
                 terraform init
                 terraform apply --auto-approve
                 aws eks --region $(terraform output -raw region) update-kubeconfig --name $(terraform output -raw cluster_name)
-                '''
-            }
-        }
-        stage ('kubectl apply') {
-            steps {
-                sh '''
-                kubectl apply -f saleor.yml
-                kubectl get all
+                kubectl get nodes
                 '''
             }
         }
